@@ -1,5 +1,8 @@
 	component DE10_LITE_Qsys is
 		port (
+			ad9226_clk_o                   : out   std_logic;                                        -- clk_o
+			ad9226_d_i                     : in    std_logic_vector(11 downto 0) := (others => 'X'); -- d_i
+			ad9226_otr_i                   : in    std_logic                     := 'X';             -- otr_i
 			altpll_0_areset_conduit_export : in    std_logic                     := 'X';             -- export
 			altpll_0_locked_conduit_export : out   std_logic;                                        -- export
 			clk_clk                        : in    std_logic                     := 'X';             -- clk

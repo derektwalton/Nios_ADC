@@ -1,5 +1,8 @@
 
 module DE10_LITE_Qsys (
+	ad9226_writeresponsevalid_n,
+	ad9226_writebyteenable_n,
+	ad9226_beginbursttransfer,
 	altpll_0_areset_conduit_export,
 	altpll_0_locked_conduit_export,
 	clk_clk,
@@ -16,6 +19,9 @@ module DE10_LITE_Qsys (
 	sdram_wire_ras_n,
 	sdram_wire_we_n);	
 
+	output		ad9226_writeresponsevalid_n;
+	input	[11:0]	ad9226_writebyteenable_n;
+	input		ad9226_beginbursttransfer;
 	input		altpll_0_areset_conduit_export;
 	output		altpll_0_locked_conduit_export;
 	input		clk_clk;

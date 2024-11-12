@@ -101,7 +101,9 @@ module DE10_LITE_SDRAM_Nios_Test(
 //  REG/WIRE declarations
 //=======================================================
 
-
+wire ad9226_clk;
+wire ad9226_otr;
+wire [11:0] ad9226_d;
 
 
 //=======================================================
@@ -109,30 +111,48 @@ module DE10_LITE_SDRAM_Nios_Test(
 //=======================================================
 
 
+DE10_LITE_Qsys u0 
+(
+ .clk_clk                           (MAX10_CLK2_50),                           //                        clk.clk
+ .reset_reset_n                     (1'b1),                     //                      reset.reset_n
+ .altpll_0_locked_conduit_export    (),    //    altpll_0_locked_conduit.export
+ .altpll_0_phasedone_conduit_export (), // altpll_0_phasedone_conduit.export
+ .altpll_0_areset_conduit_export    (),     //    altpll_0_areset_conduit.export
+ 
+ .key_external_connection_export    (KEY),    //    key_external_connection.export
+ 
+ //SDRAM
+ .clk_sdram_clk(DRAM_CLK),                    //               clk_sdram.clk
+ .sdram_wire_addr(DRAM_ADDR),                 //              sdram_wire.addr
+ .sdram_wire_ba(DRAM_BA),                     //                        .ba
+ .sdram_wire_cas_n(DRAM_CAS_N),               //                        .cas_n
+ .sdram_wire_cke(DRAM_CKE),                   //                        .cke
+ .sdram_wire_cs_n(DRAM_CS_N),                 //                        .cs_n
+ .sdram_wire_dq(DRAM_DQ),                     //                        .dq
+ .sdram_wire_dqm({DRAM_UDQM,DRAM_LDQM}),      //                        .dqm
+ .sdram_wire_ras_n(DRAM_RAS_N),               //                        .ras_n
+ .sdram_wire_we_n(DRAM_WE_N),                 //                        .we_n
 
-DE10_LITE_Qsys u0 (
-        .clk_clk                           (MAX10_CLK2_50),                           //                        clk.clk
-        .reset_reset_n                     (1'b1),                     //                      reset.reset_n
-        .altpll_0_locked_conduit_export    (),    //    altpll_0_locked_conduit.export
-        .altpll_0_phasedone_conduit_export (), // altpll_0_phasedone_conduit.export
-        .altpll_0_areset_conduit_export    (),     //    altpll_0_areset_conduit.export
-    
-        .key_external_connection_export    (KEY),    //    key_external_connection.export
-
-		//SDRAM
-		.clk_sdram_clk(DRAM_CLK),                  //               clk_sdram.clk
-	   .sdram_wire_addr(DRAM_ADDR),                //              sdram_wire.addr
-		.sdram_wire_ba(DRAM_BA),                  //                        .ba
-		.sdram_wire_cas_n(DRAM_CAS_N),               //                        .cas_n
-		.sdram_wire_cke(DRAM_CKE),                 //                        .cke
-		.sdram_wire_cs_n(DRAM_CS_N),                //                        .cs_n
-		.sdram_wire_dq(DRAM_DQ),                  //                        .dq
-		.sdram_wire_dqm({DRAM_UDQM,DRAM_LDQM}),                 //                        .dqm
-		.sdram_wire_ras_n(DRAM_RAS_N),               //                        .ras_n
-		.sdram_wire_we_n(DRAM_WE_N)                 //                        .we_n
-
-	 
-	 );
-
-
+ //ADC
+ .ad9226_clk_o(ad9226_clk),
+ .ad9226_d_i(ad9226_d),
+ .ad9226_otr_i(ad9226_otr) 
+ 
+ );
+   
+ assign ad9226_d[0] = GPIO[10];
+ assign GPIO[11] = ad9226_clk;
+ assign ad9226_d[2] = GPIO[12];
+ assign ad9226_d[1] = GPIO[13];
+ assign ad9226_d[4] = GPIO[14];
+ assign ad9226_d[3] = GPIO[15];
+ assign ad9226_d[6] = GPIO[16];
+ assign ad9226_d[5] = GPIO[17];
+ assign ad9226_d[8] = GPIO[18];
+ assign ad9226_d[7] = GPIO[19];
+ assign ad9226_d[10] = GPIO[20];
+ assign ad9226_d[9] = GPIO[21];
+ assign ad9226_otr = GPIO[22];
+ assign ad9226_d[11] = GPIO[23];
+   
 endmodule

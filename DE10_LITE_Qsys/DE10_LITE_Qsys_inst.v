@@ -1,4 +1,7 @@
 	DE10_LITE_Qsys u0 (
+		.ad9226_writeresponsevalid_n    (<connected-to-ad9226_writeresponsevalid_n>),    //                  ad9226.writeresponsevalid_n
+		.ad9226_writebyteenable_n       (<connected-to-ad9226_writebyteenable_n>),       //                        .writebyteenable_n
+		.ad9226_beginbursttransfer      (<connected-to-ad9226_beginbursttransfer>),      //                        .beginbursttransfer
 		.altpll_0_areset_conduit_export (<connected-to-altpll_0_areset_conduit_export>), // altpll_0_areset_conduit.export
 		.altpll_0_locked_conduit_export (<connected-to-altpll_0_locked_conduit_export>), // altpll_0_locked_conduit.export
 		.clk_clk                        (<connected-to-clk_clk>),                        //                     clk.clk
