@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'DE10_LITE_Qsys'
  * SOPC Builder design path: ../../DE10_LITE_Qsys.sopcinfo
  *
- * Generated: Fri Jun 05 12:24:27 CST 2020
+ * Generated: Tue Nov 12 16:35:47 EST 2024
  */
 
 /*
@@ -149,6 +149,7 @@
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
 #define __ALTPLL
+#define __AVALON_MM_ADC_CTRL
 
 
 /*
@@ -199,6 +200,20 @@
 #define ALTPLL_0_SPAN 16
 #define ALTPLL_0_TYPE "altpll"
 #define ALT_MODULE_CLASS_altpll_0 altpll
+
+
+/*
+ * avalon_mm_adc_ctrl_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_avalon_mm_adc_ctrl_0 avalon_mm_adc_ctrl
+#define AVALON_MM_ADC_CTRL_0_BASE 0x4042000
+#define AVALON_MM_ADC_CTRL_0_IRQ -1
+#define AVALON_MM_ADC_CTRL_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define AVALON_MM_ADC_CTRL_0_NAME "/dev/avalon_mm_adc_ctrl_0"
+#define AVALON_MM_ADC_CTRL_0_SPAN 1024
+#define AVALON_MM_ADC_CTRL_0_TYPE "avalon_mm_adc_ctrl"
 
 
 /*
@@ -337,7 +352,7 @@
 #define SYSID_QSYS_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_NAME "/dev/sysid_qsys"
 #define SYSID_QSYS_SPAN 8
-#define SYSID_QSYS_TIMESTAMP 1591330825
+#define SYSID_QSYS_TIMESTAMP 1731445155
 #define SYSID_QSYS_TYPE "altera_avalon_sysid_qsys"
 
 

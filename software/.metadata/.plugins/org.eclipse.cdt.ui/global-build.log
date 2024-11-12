@@ -1,6 +1,15 @@
-10:02:34 **** Incremental Build of configuration Nios II for project DE10_LITE_SDRAM_Nios_Test ****
+16:41:43 **** Incremental Build of configuration Nios II for project DE10_LITE_SDRAM_Nios_Test ****
 make all 
 Info: Building ../DE10_LITE_SDRAM_Nios_Test_bsp/
-D:/altera/16.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE10_LITE_SDRAM_Nios_Test_bsp/
+C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE10_LITE_SDRAM_Nios_Test_bsp/
 [BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE10_LITE_SDRAM_Nios_Test_bsp//HAL/inc -I../DE10_LITE_SDRAM_Nios_Test_bsp/ -I../DE10_LITE_SDRAM_Nios_Test_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=local  -o obj/default/main.o main.c
+Info: Linking DE10_LITE_SDRAM_Nios_Test.elf
+nios2-elf-g++  -T'../DE10_LITE_SDRAM_Nios_Test_bsp//linker.x' -msys-crt0='../DE10_LITE_SDRAM_Nios_Test_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE10_LITE_SDRAM_Nios_Test_bsp/   -Wl,-Map=DE10_LITE_SDRAM_Nios_Test.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=local  -o DE10_LITE_SDRAM_Nios_Test.elf obj/default/main.o obj/default/mem_verify.o -lm -msys-lib=m
+nios2-elf-insert DE10_LITE_SDRAM_Nios_Test.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4041048 --timestamp 1731445155 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name DE10_LITE_Qsys --quartus_project_dir "C:/Users/derek/Documents/GitHub/Nios_ADC" --jdi ../..//output_files/DE10_LITE_SDRAM_Nios_Test.jdi --sopcinfo C:/Users/derek/Documents/GitHub/Nios_ADC/software/DE10_LITE_SDRAM_Nios_Test_bsp/../../DE10_LITE_Qsys.sopcinfo
+Info: (DE10_LITE_SDRAM_Nios_Test.elf) 72 KBytes program size (code + initialized data).
+Info:                                 18 KBytes free for stack + heap.
+Info: Creating DE10_LITE_SDRAM_Nios_Test.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE10_LITE_SDRAM_Nios_Test.elf >DE10_LITE_SDRAM_Nios_Test.objdump
 [DE10_LITE_SDRAM_Nios_Test build complete]

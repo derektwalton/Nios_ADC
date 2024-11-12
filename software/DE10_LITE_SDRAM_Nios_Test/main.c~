@@ -36,18 +36,9 @@
 #include "system.h"
 #include "alt_types.h"
 
-#define ADC_CTRL_BASE 0x04042000
-
-#define CONTROL 0
-#define STATUS  1
-#define DELAY   2
-#define DATA    3
-
-
 int main()
 {
-#if 0
-  bool bPass, bLoop;
+	bool bPass, bLoop;
 	int TestIndex ;
 	alt_u32 InitValue = 0x01;
 	bool bShowMessage = TRUE;
@@ -99,56 +90,5 @@ int main()
 
 
     return 0;
-
-#else
-
-  alt_u32 d32;
-  alt_u8 ButtonStatus;
-  const alt_u8 ButtonMask = 0x03; // 2 button
-  
-  printf("===== FLOW RATE SENSOR  =====\r\n");
-
-  while(1){
-    
-    printf("\n==========================================================\n");
-    printf("Press any KEY to start test\n");
-    ButtonStatus = ButtonMask;
-    while((ButtonStatus & ButtonMask) == ButtonMask){
-      ButtonStatus = IORD(KEY_BASE, 0);
-    }
-
-    d32 = IORD(ADC_CTRL_BASE, DELAY);
-    printf("read adc.delay %lx\n",d32);
-    
-    printf("write adc.delay %lx\n",(alt_u32)0xdead);
-    IOWR(ADC_CTRL_BASE, DELAY, 0xdead);
-    d32 = IORD(ADC_CTRL_BASE, DELAY);
-    printf("read adc.delay %lx\n",d32);
-
-    printf("write adc.delay %lx\n",(alt_u32)0xbeef);
-    IOWR(ADC_CTRL_BASE, DELAY, 0xbeef);
-    d32 = IORD(ADC_CTRL_BASE, DELAY);
-    printf("read adc.delay %lx\n",d32);
-
-    
-    IOWR(ADC_CTRL_BASE, DELAY, 0x0);
-    IOWR(ADC_CTRL_BASE, CONTROL, 0x1);
-    do {
-      d32 = IORD(ADC_CTRL_BASE, STATUS);
-    } while ( !(d32 & 1) );  // wait for capture_done bit (bit 0) to be set
-
-    for (int i=0;i<1024;i++) {
-      d32 = IORD(ADC_CTRL_BASE, DATA);
-      printf("%d %d %lx\n",
-	     i,                        // sample number
-	     (d32 & (1<<12)) ? 1 : 0,  // overflow
-	     d32 & 0x3ff );            // 12-bit code
-    }
-
-  }
-
-  return 0;
-  
-#endif
 }
 
